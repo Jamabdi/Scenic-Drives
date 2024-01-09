@@ -8,3 +8,15 @@ CREATE TABLE "user" (
     "username" VARCHAR (80) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL
 );
+
+
+CREATE TABLE "routes" (
+	"id" SERIAL PRIMARY KEY,
+	"name" varchar(100),
+    "description" text,
+	"map_pic" varchar(255),
+	"route_pic" varchar(255)
+);
+
+INSERT INTO treats ("name", "description", "map_pic", "route_pic")
+VALUES
