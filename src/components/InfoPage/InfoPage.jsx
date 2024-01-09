@@ -8,9 +8,10 @@ import React from 'react';
 function InfoPage() {
   return (
     <div className="container">
-      <p>Welcome to ScenicDrives.com: Your Ultimate Destination for Scenic Overpasses and Windy Roads About Us:
-RoadTripper Hub is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road. 
-Our mission is to connect passionate travelers with the best scenic routes, picturesque overpasses, and winding roads, ensuring unforgettable journeys for every adventure seeker.</p>
+      <p>Welcome to ScenicDrives.com: Your Ultimate Destination for Scenic Overpasses and Windy Roads About Us:</p>
+      <p>RoadTripper Hub is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road.</p>
+      <p>Our mission is to connect passionate travelers with the best scenic routes,
+         picturesque overpasses, and winding roads, ensuring unforgettable journeys for every adventure seeker.</p>
     </div>
   );
 }
