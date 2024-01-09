@@ -26,6 +26,23 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  console.log('req.body =', req.body);
+  let queryText = `
+      INSERT INTO "routes" ("name", "description", "map_pic", "route_pic")
+      VALUES ($1, $2, $3, $4);
+  `;
+  pool.query(queryText, [
+      req.body.name, 
+      req.body.description, 
+      req.body.map_pic,
+      req.body.route_pic, 
+  ]).then((result) => {
+      res.send(result.rows);
+  }).catch((error) => {
+      console.log('Error in POST /routes', error);
+      res.sendStatus(201);
+  });
 });
+
 
 module.exports = router;
