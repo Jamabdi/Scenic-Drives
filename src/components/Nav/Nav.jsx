@@ -7,6 +7,12 @@ import { useSelector } from 'react-redux';
 function Nav() {
   const user = useSelector((store) => store.user);
 
+
+  const textPlacement = {
+    textAlign: 'center',
+  };
+
+
   return (
     <div className="nav">
       <Link to="/home">
