@@ -29,12 +29,13 @@ function LandingPage() {
   return (
 
 <main>
+<h2 style = {textPlacement}>{heading}</h2>
       <section className="routes">
         {routes.map(route => {
           return (
             <div data-testid='routeItem' key={route.id}>
               <h3>{route.name}</h3>
-              <img src={route.map_pic} alt={route.name}/>
+              <img src={route.map_pic} alt={route.description}/>
             </div>
           );
         })}
@@ -52,7 +53,6 @@ function LandingPage() {
 
 
     <div className="container">
-      <h2 style = {textPlacement}>{heading}</h2>
 
       <div className="grid">
         <div className="grid-col grid-col_8">

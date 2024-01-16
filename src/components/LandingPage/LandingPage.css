@@ -13,11 +13,10 @@ Grid
   align-items: flex-start;
 }
 
-.webpage {
-  display:flex;
-  height: 100vh;
-  background-color: black;
-};
+/* .routes {
+  display : flex;
+  flex-wrap: wrap;
+} */
 
 .grid-col {
   flex: 0 0 auto;
