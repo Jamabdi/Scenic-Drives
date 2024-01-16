@@ -1,23 +1,35 @@
 import axios from "axios"
-import { put, takeLatest } from "redux-saga/effects";
+import { put, takeLatest, takeEvery } from "redux-saga/effects";
+import logger from 'redux-logger';
+import createSagaMiddleware from 'redux-saga';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-function* getRoutes() {
+
+
+
+
+function* fetchAllRoutes() {
     try {
-        const response = yield axios.get('/api/routes');
-        const action = { type: 'GET_ROUTES', payload: response.data };
-        yield put(action);
+      // Get the routes:
+      const routesResponse = yield axios.get('/api/routes');
+      // Set the value of the routes reducer:
+      yield put({
+        type: 'SET_ROUTES',
+        payload: routesResponse.data
+      });
     } catch (error) {
-        console.error('Error fetching routes:', error);
-        alert('Something went wrong.');
-        throw error;
+      console.log('fetchAllRoutes error:', error);
     }
-}
+  }
 
 
 
 
-function* routesSaga() {
-yield takeLatest('FETCH_ROUTESS', getRoutes);   
+
+
+//   The rootSaga generator function
+  function* routesSaga() {
+yield takeLatest('FETCH_ROUTES', fetchAllRoutes,); 
 };
 
 export default routesSaga

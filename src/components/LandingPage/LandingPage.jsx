@@ -18,15 +18,8 @@ function LandingPage() {
   const routes = useSelector(store => store.routes);
 
   useEffect(() => {
-    dispatch({ type: 'GET_ROUTES' });
+    dispatch({ type: 'FETCH_ROUTES' });
   }, []);
-
-
-  const displayRoutes = (routesToDisplay) => {
-    console.log(routesToDisplay);
-  dispatch({type:'ROUTE_DETAILS', payload: routesToDisplay})
-  // history.push(`/details/${routesToDisplay.id}`);
-  };
 
 
   const textPlacement = {
@@ -36,17 +29,17 @@ function LandingPage() {
   return (
 
 <main>
-      {/* <section className="routes">
+      <section className="routes">
         {routes.map(route => {
           return (
             <div data-testid='routeItem' key={route.id}>
               <h3>{route.name}</h3>
-              <img onClick={(event)=> displayRoutes(route)} src={route.map_pic} alt={route.name}/>
+              <img src={route.map_pic} alt={route.name}/>
             </div>
           );
         })}
-      </section> */}
-  
+      </section>
+
 
 
 

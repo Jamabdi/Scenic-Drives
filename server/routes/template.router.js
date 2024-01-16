@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     // GET route code here
     const query = `
       SELECT * FROM "routes"
-        ORDER BY "title" ASC;
+        ORDER BY "name" ASC;
     `;
     pool.query(query)
       .then(result => {
@@ -34,14 +34,13 @@ router.post('/', (req, res) => {
   // POST route code here
   console.log('req.body =', req.body);
   let queryText = `
-      INSERT INTO "routes" ("name", "description", "map_pic", "route_pic")
-      VALUES ($1, $2, $3, $4);
+      INSERT INTO "routes" ("name", "description", "map_pic")
+      VALUES ($1, $2, $3);
   `;
   pool.query(queryText, [
       req.body.name, 
       req.body.description, 
       req.body.map_pic,
-      req.body.route_pic, 
   ]).then((result) => {
       res.send(result.rows);
   }).catch((error) => {
@@ -52,15 +51,15 @@ router.post('/', (req, res) => {
 
 
 // DELETE
-router.delete('/:id', (req, res) => {
-  console.log('req.params', req.params);
-  let queryText = 'DELETE FROM "routes" WHERE "id" = $1'; 
-  pool.query(queryText, [req.params.id]).then((result) => {
-      res.sendStatus(200);
-  }).catch((error) => {
-      console.log('Erro in DELETE /routes/:id', error);
-      res.sendStatus(500);
-  });
-});
+// router.delete('/:id', (req, res) => {
+//   console.log('req.params', req.params);
+//   let queryText = 'DELETE FROM "routes" WHERE "id" = $1'; 
+//   pool.query(queryText, [req.params.id]).then((result) => {
+//       res.sendStatus(200);
+//   }).catch((error) => {
+//       console.log('Erro in DELETE /routes/:id', error);
+//       res.sendStatus(500);
+//   });
+// });
 
 module.exports = router;

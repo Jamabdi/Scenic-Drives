@@ -1,12 +1,13 @@
-
-
-
-const routesReducer = (state = [], action) => {
-    if (action.type === 'GET_ROUTES') {
+// Routes Reducer
+const routes = (state = [], action) => {
+    switch (action.type) {
+      case 'SET_ROUTES':
         return action.payload;
+      default:
+        return state;
     }
-    return state;
-};
+  }
 
 
-export default routesReducer;
+
+export default routes;
