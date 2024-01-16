@@ -20,4 +20,5 @@ CREATE TABLE "routes" (
 
 INSERT INTO "routes" ("name", "description", "map_pic", "route_pic")
 VALUES
-('Highway 60 Wabasha', 'Route 60 is a scenic backroad with lots of curves & nature to take in as it runs through the Richard J Dorer Memorial Hardwood State Forest.', 'Highway60map.png', 'Route60.jpeg')
+('Highway 60 Wabasha', 'Route 60 is a scenic backroad with lots of curves & nature to take in as it runs through the Richard J Dorer Memorial Hardwood State Forest.', 'Highway60map.png'),
+('Scenic Byway 16', 'an 88-mile route in Minnesota that runs from Dexter to the Mississippi River', 'ScenicByway16.png')
