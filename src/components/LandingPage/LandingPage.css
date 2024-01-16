@@ -13,10 +13,11 @@ Grid
   align-items: flex-start;
 }
 
-/* .routes {
+.routesItem {
   display : flex;
   flex-wrap: wrap;
-} */
+  margin: 50px;
+}
 
 .grid-col {
   flex: 0 0 auto;

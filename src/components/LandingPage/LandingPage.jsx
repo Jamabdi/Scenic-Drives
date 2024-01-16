@@ -26,6 +26,11 @@ function LandingPage() {
     textAlign: 'center',
   };
 
+ const imageSizeDown = {
+  width: `${500}px`, // Set the desired width
+  height: `${400}px`, // Set the desired height
+ };
+
   return (
 
 <main>
@@ -35,7 +40,7 @@ function LandingPage() {
           return (
             <div data-testid='routeItem' key={route.id}>
               <h3>{route.name}</h3>
-              <img src={route.map_pic} alt={route.description}/>
+              <img style = {imageSizeDown} src={route.map_pic} alt={route.description}/>
             </div>
           );
         })}
