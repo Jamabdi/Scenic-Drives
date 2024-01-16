@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './LandingPage.css';
 
@@ -13,19 +14,19 @@ function LandingPage() {
     history.push('/login');
   };
 
-  // const dispatch = useDispatch();
-  // const movies = useSelector(store => store.routes);
+  const dispatch = useDispatch();
+  const routes = useSelector(store => store.routes);
 
-  // useEffect(() => {
-  //   dispatch({ type: 'GET_ROUTES' });
-  // }, []);
+  useEffect(() => {
+    dispatch({ type: 'GET_ROUTES' });
+  }, []);
 
 
-  // const displayRoutes = (routesToDisplay) => {
-  //   console.log(movieToDisplay);
-  // dispatch({type:'ROUTE_DETAILS', payload: routesToDisplay})
+  const displayRoutes = (routesToDisplay) => {
+    console.log(routesToDisplay);
+  dispatch({type:'ROUTE_DETAILS', payload: routesToDisplay})
   // history.push(`/details/${routesToDisplay.id}`);
-  // };
+  };
 
 
   const textPlacement = {
@@ -33,6 +34,30 @@ function LandingPage() {
   };
 
   return (
+
+<main>
+      {/* <section className="routes">
+        {routes.map(route => {
+          return (
+            <div data-testid='routeItem' key={route.id}>
+              <h3>{route.name}</h3>
+              <img onClick={(event)=> displayRoutes(route)} src={route.map_pic} alt={route.name}/>
+            </div>
+          );
+        })}
+      </section> */}
+  
+
+
+
+
+
+
+
+
+
+
+
     <div className="container">
       <h2 style = {textPlacement}>{heading}</h2>
 
@@ -52,6 +77,7 @@ function LandingPage() {
         </div>
       </div>
     </div>
+    </main>
   );
 }
 
