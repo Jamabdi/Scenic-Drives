@@ -6,16 +6,20 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('');
+  const [heading, setHeading] = useState('Scenic Byways & Routes in Your Area');
   const history = useHistory();
 
   const onLogin = (event) => {
     history.push('/login');
   };
 
+  const textPlacement = {
+    textAlign: 'center',
+  };
+
   return (
     <div className="container">
-      <h2>{heading}</h2>
+      <h2 style = {textPlacement}>{heading}</h2>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
