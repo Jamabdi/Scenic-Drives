@@ -18,5 +18,6 @@ CREATE TABLE "routes" (
 	"route_pic" varchar(255)
 );
 
-INSERT INTO treats ("name", "description", "map_pic", "route_pic")
+INSERT INTO "routes" ("name", "description", "map_pic", "route_pic")
 VALUES
+('Highway 60 Wabasha', 'Route 60 is a scenic backroad with lots of curves & nature to take in as it runs through the Richard J Dorer Memorial Hardwood State Forest.', 'Highway60map.png', 'Route60.jpeg')
