@@ -13,6 +13,21 @@ function LandingPage() {
     history.push('/login');
   };
 
+  // const dispatch = useDispatch();
+  // const movies = useSelector(store => store.routes);
+
+  // useEffect(() => {
+  //   dispatch({ type: 'GET_ROUTES' });
+  // }, []);
+
+
+  // const displayRoutes = (routesToDisplay) => {
+  //   console.log(movieToDisplay);
+  // dispatch({type:'ROUTE_DETAILS', payload: routesToDisplay})
+  // history.push(`/details/${routesToDisplay.id}`);
+  // };
+
+
   const textPlacement = {
     textAlign: 'center',
   };
