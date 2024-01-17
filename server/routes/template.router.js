@@ -90,33 +90,14 @@ router.post('/', (req, res) => {
       console.log('New Route Id:', result.rows[0].id);
       const createdRouteId = result.rows[0].id
 
-      // // Now handle the genre reference:
-      // const insertMovieGenreQuery = `
-      //   INSERT INTO "movies_genres" 
-      //     ("movie_id", "genre_id")
-      //     VALUES
-      //     ($1, $2);
-      // `;
-      // const insertMovieGenreValues = [
-      //   createdRouteId,
-      //   req.body.genre_id
-      // ]
-      // // SECOND QUERY ADDS GENRE FOR THAT NEW MOVIE
-      // pool.query(insertMovieGenreQuery, insertMovieGenreValues)
-      //   .then(result => {
-      //     //Now that both are done, send back success!
-      //     res.sendStatus(201);
-      //   }).catch(err => {
-      //     // catch for second query
-      //     console.log(err);
-      //     res.sendStatus(500)
-      // })
     }).catch(err => { // 👈 Catch for first query
       console.log(err);
       res.sendStatus(500)
     })
 })
 
+
+// PUT Router Here
 
 
 
@@ -128,15 +109,15 @@ router.post('/', (req, res) => {
 
 
 // DELETE
-// router.delete('/:id', (req, res) => {
-//   console.log('req.params', req.params);
-//   let queryText = 'DELETE FROM "routes" WHERE "id" = $1'; 
-//   pool.query(queryText, [req.params.id]).then((result) => {
-//       res.sendStatus(200);
-//   }).catch((error) => {
-//       console.log('Erro in DELETE /routes/:id', error);
-//       res.sendStatus(500);
-//   });
-// });
+router.delete('/:id', (req, res) => {
+  console.log('req.params', req.params);
+  let queryText = 'DELETE FROM "routes" WHERE "id" = $1'; 
+  pool.query(queryText, [req.params.id]).then((result) => {
+      res.sendStatus(200);
+  }).catch((error) => {
+      console.log('Erro in DELETE /routes/:id', error);
+      res.sendStatus(500);
+  });
+});
 
 module.exports = router;

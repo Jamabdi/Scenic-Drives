@@ -34,11 +34,24 @@ function* fetchRouteDetails(action){
 
 
 
+function* removeRoute(action){
+  try {
+      yield axios.delete(`/api/routes/${action.payload}`);
+      yield put({type: 'FETCH_ROUTES'});
+  } catch(error){
+      console.log('error deleting route, Sagas', error);
+      alert('Something wrong with DELETE');
+  };
+};
+
+
+
 
 
 //   The rootSaga generator function
   function* routesSaga() {
 yield takeLatest('FETCH_ROUTE_DETAILS', fetchRouteDetails),
+yield takeLatest('DELETE_ROUTE', removeRoute),
 yield takeLatest('FETCH_ROUTES', fetchAllRoutes); 
 };
 

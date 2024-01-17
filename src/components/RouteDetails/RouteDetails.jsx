@@ -15,6 +15,13 @@ function RouteDetails(){
 
 
 
+  
+    const removeRoute = (id) => {
+        dispatch({ type: 'DELETE_ROUTE', payload: id});
+      }
+
+
+
 
     const imageSizeDown = {
         width: `${500}px`, // Set the desired width
@@ -29,6 +36,9 @@ function RouteDetails(){
             <img  style = {imageSizeDown} src={route.map_pic} alt={route.name}></img>
             <p>{route.description}</p>
             <Link to = {`/post/${route.id}`}>Post New Route</Link>
+            <br></br>
+            <br></br>
+            <button onClick={() => removeRoute(route.id)}>Delete</button>
         </div>
     )
 }

@@ -18,7 +18,15 @@ const submitHandle = async (e) => {
 }
 
 useEffect(() => {
-    dispatch({ type: "POST_ROUTE", payload: {name, description, map_pic}, history });
+
+    //Edit an existing route
+    if(id){
+        dispatch({type: "EDIT_ROUTE", payload: {name, description, map_pic, id}})
+    }
+    //Add a route
+    else{
+        dispatch({ type: "POST_ROUTE", payload: {name, description, map_pic}, history });
+    }
   }, []);
 
 
