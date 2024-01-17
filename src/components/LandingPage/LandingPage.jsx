@@ -31,6 +31,10 @@ function LandingPage() {
   height: `${400}px`, // Set the desired height
  };
 
+ const displayRoute = (routeToDisplay) => {
+  dispatch({type:'SET_ROUTE_DETAILS', payload: routeToDisplay})
+ }
+
   return (
 
 <main>
@@ -40,7 +44,8 @@ function LandingPage() {
           return (
             <div data-testid='routeItem' key={route.id}>
               <h3>{route.name}</h3>
-              <img style = {imageSizeDown} src={route.map_pic} alt={route.description}/>
+              <img onClick = {(event) => displayRoute(route)} style = {imageSizeDown} src={route.map_pic} alt={route.description}/>
+              <h6>{route.description}</h6>
             </div>
           );
         })}
