@@ -32,7 +32,8 @@ function LandingPage() {
  };
 
  const displayRoute = (routeToDisplay) => {
-  dispatch({type:'SET_ROUTE_DETAILS', payload: routeToDisplay})
+  // dispatch({type:'SET_ROUTE_DETAILS', payload: routeToDisplay})
+  history.push(`/details/${routeToDisplay.id}`);
  }
 
   return (

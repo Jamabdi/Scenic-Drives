@@ -23,6 +23,24 @@ router.get('/', (req, res) => {
   });
 
 
+  //Route details rout here
+  router.get('/:id', (req, res) => {
+    // GET route code here
+    const query = `
+      SELECT * FROM "routes" WHERE "id" = $1;`;
+    pool.query(query, [req.params.id])
+      .then(result => {
+        //Returns the first item in the array, in this case the selected route in the details page.
+        res.send(result.rows[0]);
+      })
+      .catch(err => {
+        console.log('ERROR: Get route for Selected Route', err);
+        res.sendStatus(500)
+      })
+  
+  });
+
+
 
   
 
