@@ -56,7 +56,12 @@ function App() {
           </Route>
 
 
-        <Route exact path = "/Add">
+        <Route exact path = "/add">
+          <AddRoute/>
+        </Route>
+
+
+        <Route exact path = "/edit/:id">
           <AddRoute/>
         </Route>
 
