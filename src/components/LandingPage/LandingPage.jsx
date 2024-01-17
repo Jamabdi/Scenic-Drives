@@ -22,6 +22,11 @@ function LandingPage() {
   }, []);
 
 
+  const removeRoute = (id) => {
+    dispatch({ type: 'DELETE_ROUTE', payload: id});
+  }
+
+
   const textPlacement = {
     textAlign: 'center',
   };
@@ -47,6 +52,9 @@ function LandingPage() {
               <h3>{route.name}</h3>
               <img onClick = {(event) => displayRoute(route)} style = {imageSizeDown} src={route.map_pic} alt={route.description}/>
               <h6>{route.description}</h6>
+              <br></br>
+            <br></br>
+              <button onClick={() => removeRoute(route.id)}>Delete</button>
             </div>
           );
         })}
