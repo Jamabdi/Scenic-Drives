@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import RouteDetails from '../RouteDetails/RouteDetails';
+import AddRoute from '../AddRoute/AddRoute.jsx'
 
 import './App.css';
 
@@ -53,6 +54,12 @@ function App() {
           <Route exact path = '/details/:routeId'>
             <RouteDetails/>
           </Route>
+
+
+        <Route exact path = "/Add">
+          <AddRoute/>
+        </Route>
+
 
           {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/user will show the UserPage if the user is logged in.

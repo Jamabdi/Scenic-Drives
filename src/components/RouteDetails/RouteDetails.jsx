@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux';
-import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useEffect } from 'react';
+import AddRoute from '../AddRoute/AddRoute.jsx'
 
 
 function RouteDetails(){
@@ -27,6 +28,7 @@ function RouteDetails(){
             <h3>{route.name}</h3>
             <img  style = {imageSizeDown} src={route.map_pic} alt={route.name}></img>
             <p>{route.description}</p>
+            <Link to = {`/post/${route.id}`}>Post New Route</Link>
         </div>
     )
 }
