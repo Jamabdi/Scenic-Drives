@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useImperativeHandle } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 
 
@@ -10,13 +11,14 @@ const [name, setName] = useState("");
 const [description, setDescription] = useState("");
 const [map_pic, setMap_Pic] = useState("");
 const dispatch = useDispatch();
+const history = useHistory();
 
 const submitHandle = async (e) => {
     e.preventDefault();
 }
 
 useEffect(() => {
-    dispatch({ type: "FETCH_ROUTES" });
+    dispatch({ type: "POST_ROUTE", payload: {name, description, map_pic}, history });
   }, []);
 
 

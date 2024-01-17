@@ -4,6 +4,8 @@ import user from './user.reducer';
 import routes from './routes.reducer'
 import selectedRoute from './selected.reducer'
 import postRoute from './post.reducer';
+import editRoute from './edit.reducer';
+import deleteRoute from './delete.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   routes, //
   selectedRoute,
   postRoute,
+  editRoute,
+  deleteRoute,
 });
 
 export default rootReducer;
