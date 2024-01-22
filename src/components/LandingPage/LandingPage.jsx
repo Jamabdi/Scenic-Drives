@@ -20,7 +20,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2 style = {textPlacement}>{heading}</h2>
+      <h1 style = {textPlacement}>{heading}</h1>
 
       <div className="grid">
         <div className="grid-col grid-col_8">

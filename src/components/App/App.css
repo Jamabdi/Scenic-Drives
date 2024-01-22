@@ -66,7 +66,7 @@ Button
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
-/* .btn_asLink {
+ .btn_asLink {
   padding: 0;
   border-width: 0;
   border-bottom: 1px solid #444;
@@ -80,7 +80,7 @@ Button
   background-color: transparent;
   border-color: #008183;
   color: #008183;
-} */
+}
 
 /* --------------------------------------------------------------------------------
 Alert
@@ -111,6 +111,7 @@ Form Treatment
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
   opacity: 90%;
+  color: black;
 }
 
 input {

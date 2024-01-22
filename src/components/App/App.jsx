@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
+import GlobalStyles from '../GlobalStyles/GlobalStyles';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
@@ -34,6 +35,9 @@ function App() {
   }, [dispatch]);
 
   return (
+
+    <>
+    <GlobalStyles />
     <section classname='webpage'>
       <Router>
         <div>
@@ -137,6 +141,7 @@ function App() {
         </div>
       </Router>
     </section>
+    </>
   );
 }
 
