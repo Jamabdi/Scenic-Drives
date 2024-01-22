@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Card, CardContent, Grid, Paper } from '@mui/material';
-// import './LandingPage.css';
+import './UserPage.css';
 
 // CUSTOM COMPONENTS
 // import RegisterForm from '../RegisterForm/RegisterForm';
@@ -55,6 +55,7 @@ function UserPage() {
       <section className="routes">
         {routes.map(route => {
           return (
+            <Paper style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
             <div className='routeItem' key={route.id}>
               <h3>{route.name}</h3>
               <img onClick={(event) => displayRoute(route)} style={imageSizeDown} src={route.map_pic} alt={route.description} />
@@ -65,6 +66,7 @@ function UserPage() {
               <br></br>
               <button>Bookmark Route?</button>
             </div>
+            </Paper>
           );
         })}
       </section>
