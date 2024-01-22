@@ -17,12 +17,12 @@
 
 .nav-title {
  text-align: center;
- color: #f2f2f2;
+ color: white;
 }
 
 .navLink {
   display: inline-block;
-  color: #f2f2f2;
+  color: white;
   background-color: #e36414;
   text-align: center;
   padding: 24px 10px;
