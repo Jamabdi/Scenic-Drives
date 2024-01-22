@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  height: 100px;
   margin: 0 0 30px;
   background-color: #e36414;
+  opacity: 70%;
   overflow: hidden;
 }
 

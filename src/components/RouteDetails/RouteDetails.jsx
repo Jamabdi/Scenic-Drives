@@ -27,8 +27,8 @@ function RouteDetails(){
 
 
     const imageSizeDown = {
-        width: `${500}px`, // Set the desired width
-        height: `${400}px`, // Set the desired height
+        width: `${800}px`, // Set the desired width
+        height: `${700}px`, // Set the desired height
        };
 
 
@@ -41,11 +41,10 @@ function RouteDetails(){
             {/* <Link to = {`/post/${route.id}`}>Post New Route</Link> */}
 
 
-            <button onClick = {()=>history.push('/add')}>Post a New Route</button>
+            {/* <button onClick = {()=>history.push('/add')}>Post a New Route</button>
             <br></br>
             <br></br>
-            <button onClick={() => removeRoute(route.id)}>Delete</button>
-            {/* <AddRoute/> */}
+            <button onClick={() => removeRoute(route.id)}>Delete</button> */}
         </div>
     )
 }
