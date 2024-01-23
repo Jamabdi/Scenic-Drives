@@ -1,3 +1,36 @@
-.form {
+/* .form {
 color: black;
-}
+} */
+
+.form {
+    color:black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .ModalContent {
+    width: 80%; /* Adjust the width as needed */
+    max-width: 400px; /* Set a maximum width if necessary */
+    max-height: 80vh; /* Set a maximum height if necessary */
+    overflow-y: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  
+  

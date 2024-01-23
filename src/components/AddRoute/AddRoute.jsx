@@ -73,7 +73,8 @@ function AddRoute({ showModal, handleClose }) {
   };
 
   return (
-    <Modal isOpen={showModal} onRequestClose={handleClose}>
+    <Modal isOpen={showModal} onRequestClose={handleClose} className="Modal">
+        <div className="ModalContent">
       <form className="form" onSubmit={submitHandle}>
         {/* Your form content */}
         {/* <form onSubmit={submitHandle}> */}
@@ -118,6 +119,7 @@ function AddRoute({ showModal, handleClose }) {
           Add Route
         </Button>
       </form>
+      </div>
     </Modal>
   );
 }
