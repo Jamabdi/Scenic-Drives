@@ -22,9 +22,21 @@ function UserPage() {
     dispatch({ type: 'FETCH_ROUTES' });
   }, []);
 
-  const removeRoute = (id) => {
-    dispatch({ type: 'DELETE_ROUTE', payload: id });
-  }
+  // const removeRoute = (id) => {
+  //   dispatch({ type: 'DELETE_ROUTE', payload: id });
+  // }
+
+  const removeRoute = async (id) => {
+    // Dispatch action to delete route
+    await dispatch({ type: 'DELETE_ROUTE', payload: id });
+  
+    // Check if the route details page is currently displayed
+    if (history.location.pathname.startsWith('/details')) {
+      history.push('/user');
+    }
+  };
+  
+
 
   const textPlacement = {
     textAlign: 'center',
