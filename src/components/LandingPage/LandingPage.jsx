@@ -6,7 +6,7 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
+  const [heading, setHeading] = useState('Welcome to ScenicDrives');
   const history = useHistory();
 
   const onLogin = (event) => {
@@ -18,19 +18,24 @@ function LandingPage() {
     textAlign: 'center',
   };
 
+  const headingPlacement = {
+    textAlign: 'center',
+    textIndent: -550,
+  }
+
   return (
     <div className="container">
-      <h1 style={textPlacement}>{heading}</h1>
-
+      <h1 style={headingPlacement}>{heading}</h1>
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <h2>
-            Welcome to ScenicDrives.com: Your Ultimate Destination for Scenic Overpasses and Windy Roads.
+          <h2 style={textPlacement}>
+             Your Ultimate Destination for Scenic Overpasses and Windy Roads.
           </h2>
+          <br></br>
           <br></br>
 
           <h3 style = {textPlacement}>About Us:</h3>
-          <h4>
+          <h4 style = {textPlacement}>
             Scenic Drives is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road.
 
             Our mission is to connect passionate travelers with the best scenic routes,

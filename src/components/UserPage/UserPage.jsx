@@ -47,11 +47,16 @@ function UserPage() {
     setShowModal(false);
   };
 
+
+
+
   return (
     <main>
       <h2 style={textPlacement}>{heading}</h2>
       <br></br>
-      <Button variant="contained" color="primary" onClick={handleShowModal}>Post a New Route</Button>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
+      <Button className='postButton' variant="contained" color="primary" onClick={handleShowModal}>Post a New Route</Button>
+      </div>
       <br></br>
       <br></br>
       <br></br>
@@ -69,12 +74,14 @@ function UserPage() {
                     <h3 style={textPlacement}>{route.name}</h3>
                     <img onClick={(event) => displayRoute(route)} style={imageSizeDown} src={route.map_pic} alt={route.description} />
                     <h6 style={textPlacement}>{route.description}</h6>
-                    <div className='CardButtons'>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
                     <Button variant="contained" color="primary">
                       Bookmark Route
                     </Button>
+                    </div>
                     <br></br>
                     <br></br>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
                     <Button onClick={() => removeRoute(route.id)} variant="contained" color="secondary">
                       Delete
                     </Button>
