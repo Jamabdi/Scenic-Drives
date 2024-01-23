@@ -40,20 +40,7 @@ function AddRoute() {
         }
     }
 
-    // useEffect(() => {
-
-    // //     //Edit an existing route
-    // //     if(id){
-    // //         dispatch({type: "EDIT_ROUTE", payload: {name, description, map_pic, id}})
-    // //     }
-    // //     //Add a route
-    // //     else{
-    // //         dispatch({ type: "POST_ROUTE", payload: {name, description, map_pic} });
-    // //     }
-    // //   }, []);
-
-
-
+  
 
 
 
@@ -78,13 +65,24 @@ function AddRoute() {
                 onChange={(e) => setDescription(e.target.value)}
             />
             <br></br>
-            Map Pic:{" "}
+            Map File:{" "}
             <input
                 value={map_pic}
+                type="file"
+                accept="image/*"
                 placeholder="Upload Image of Route"
                 onChange={(e) => setMap_Pic(e.target.value)}
             />
             <br></br>
+        <br />
+        {
+          map_pic === '' ? (
+            <p>Please select an image</p>
+          ) : (
+            <img style={{ maxWidth: '150px' }} src={map_pic} />
+          )
+        }
+        <br />
             <button type="submit">Add Route</button>
         </form>
     );

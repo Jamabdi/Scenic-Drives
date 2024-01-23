@@ -20,21 +20,22 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h1 style = {textPlacement}>{heading}</h1>
+      <h1 style={textPlacement}>{heading}</h1>
 
       <div className="grid">
         <div className="grid-col grid-col_8">
-          <h4>
-          Welcome to ScenicDrives.com: Your Ultimate Destination for Scenic Overpasses and Windy Roads.
-          </h4>
+          <h2>
+            Welcome to ScenicDrives.com: Your Ultimate Destination for Scenic Overpasses and Windy Roads.
+          </h2>
+          <br></br>
 
-          <p>
-          <h5>About Us:</h5> 
-          Scenic Drives is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road.
-          
-          Our mission is to connect passionate travelers with the best scenic routes,
-         picturesque overpasses, and winding roads, ensuring unforgettable journeys for every adventure seeker
-          </p>
+          <h3>About Us:</h3>
+          <h4>
+            Scenic Drives is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road.
+
+            Our mission is to connect passionate travelers with the best scenic routes,
+            picturesque overpasses, and winding roads, ensuring unforgettable journeys for every adventure seeker.
+          </h4>
         </div>
         <div className="grid-col grid-col_4">
           <RegisterForm />
