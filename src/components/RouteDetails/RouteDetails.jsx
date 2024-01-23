@@ -86,11 +86,11 @@ function RouteDetails() {
           <h3>{route.name}</h3>
           <img style={imageSizeDown} src={route.map_pic} alt={route.name}></img>
           <p>{route.description}</p>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
+          {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
           <Button variant="contained" color="secondary" onClick={() => removeRoute(route.id)}>
             Delete Route
           </Button>
-          </div>
+          </div> */}
         </CardContent>
       </Card>
     </div>
