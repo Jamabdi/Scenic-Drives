@@ -31,8 +31,8 @@ function UserPage() {
   };
 
   const imageSizeDown = {
-    width: `${500}px`,
-    height: `${400}px`,
+    width: `${400}px`,
+    height: `${300}px`,
   };
 
   const displayRoute = (routeToDisplay) => {
@@ -51,7 +51,7 @@ function UserPage() {
     <main>
       <h2 style={textPlacement}>{heading}</h2>
       <br></br>
-      <button style={textPlacement} onClick={handleShowModal}>Post a New Route</button>
+      <Button variant="contained" color="primary" onClick={handleShowModal}>Post a New Route</Button>
       <br></br>
       <br></br>
       <br></br>
@@ -59,21 +59,29 @@ function UserPage() {
       {/* AddRoute component */}
       <AddRoute showModal={showModal} handleClose={handleCloseModal} />
       {/* Existing routes section */}
-      <section className="routes">
+      <section className="container">
         {routes.map(route => {
           return (
-            <Paper style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }} key={route.id}>
-              <div className='routeItem'>
-                <h3>{route.name}</h3>
-                <img onClick={(event) => displayRoute(route)} style={imageSizeDown} src={route.map_pic} alt={route.description} />
-                <h6>{route.description}</h6>
-                <br></br>
-                <br></br>
-                <button onClick={() => removeRoute(route.id)}>Delete</button>
-                <br></br>
-                <button>Bookmark Route?</button>
-              </div>
-            </Paper>
+            // <Paper key={route.id} elevation={3} style={{ margin: '10px', padding: '20px' }}>
+               <Card key={route.id} className="card" elevation={3}>
+                <CardContent>
+                  <div className='routeItem'>
+                    <h3 style={textPlacement}>{route.name}</h3>
+                    <img onClick={(event) => displayRoute(route)} style={imageSizeDown} src={route.map_pic} alt={route.description} />
+                    <h6 style={textPlacement}>{route.description}</h6>
+                    <div className='CardButtons'>
+                    <Button variant="contained" color="primary">
+                      Bookmark Route
+                    </Button>
+                    <br></br>
+                    <br></br>
+                    <Button onClick={() => removeRoute(route.id)} variant="contained" color="secondary">
+                      Delete
+                    </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
           );
         })}
       </section>
@@ -82,4 +90,32 @@ function UserPage() {
 }
 
 export default UserPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

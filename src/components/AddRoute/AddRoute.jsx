@@ -112,11 +112,13 @@ function AddRoute({ showModal, handleClose }) {
       {/* <button type="submit">Add Route</button> */}
     {/* </form> */}
         {/* ... */}
-        <Button variant="contained" color="secondary" onClick={handleClose}>
-          Close
-        </Button>
+
         <Button variant="contained" color="primary" type="submit">
           Add Route
+        </Button>
+        <br></br>
+        <Button variant="contained" color="secondary" onClick={handleClose}>
+          Close
         </Button>
       </form>
       </div>

@@ -15,8 +15,20 @@ function AboutPage() {
 
   return (
     <>
-    <div className='Technologies'>
-
+    <div style={textPlacement} className='Technologies'>
+    <p>Technologies Used</p>
+          <ul>
+            <li>React</li>
+            <li>Javascript</li>
+            <li>Cloudinary</li>
+            <li>Global Style</li>
+            <li>PostgreSQL</li>
+            <li>Material UI</li>
+            <li>CSS Flexbox</li>
+            <li>Axios</li>
+            <li>Redux</li>
+            <li>Sagas</li>
+          </ul>
     </div>
 
 
