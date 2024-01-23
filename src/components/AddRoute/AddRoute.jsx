@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { Card, Button, CardContent, Grid, Paper } from '@mui/material';
+import Modal from 'react-modal';
+import './AddRoute.css';
 
-function AddRoute() {
+function AddRoute({ showModal, handleClose }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [map_pic, setMap_Pic] = useState('');
@@ -59,6 +62,7 @@ function AddRoute() {
         setDescription('');
         setMap_Pic('');
         setCloudinaryUrl('');
+        handleClose(); // Close the modal after successful submission
       } else {
         alert('Please upload an image first.');
       }
@@ -69,7 +73,10 @@ function AddRoute() {
   };
 
   return (
-    <form onSubmit={submitHandle}>
+    <Modal isOpen={showModal} onRequestClose={handleClose}>
+      <form className="form" onSubmit={submitHandle}>
+        {/* Your form content */}
+        {/* <form onSubmit={submitHandle}> */}
       Name:{" "}
       <input
         value={name}
@@ -101,8 +108,17 @@ function AddRoute() {
         )
       }
       <br />
-      <button type="submit">Add Route</button>
-    </form>
+      {/* <button type="submit">Add Route</button> */}
+    {/* </form> */}
+        {/* ... */}
+        <Button variant="contained" color="secondary" onClick={handleClose}>
+          Close
+        </Button>
+        <Button variant="contained" color="primary" type="submit">
+          Add Route
+        </Button>
+      </form>
+    </Modal>
   );
 }
 
