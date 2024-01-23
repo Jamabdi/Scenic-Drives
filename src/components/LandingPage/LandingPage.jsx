@@ -29,7 +29,7 @@ function LandingPage() {
           </h2>
           <br></br>
 
-          <h3>About Us:</h3>
+          <h3 style = {textPlacement}>About Us:</h3>
           <h4>
             Scenic Drives is a dedicated online platform for driving and motorcycle enthusiasts who crave the thrill of exploring the open road.
 

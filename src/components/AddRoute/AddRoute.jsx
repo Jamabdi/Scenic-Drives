@@ -1,94 +1,109 @@
-import React, { useState, useEffect, useImperativeHandle } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-// import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-
-
 
 function AddRoute() {
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [map_pic, setMap_Pic] = useState('');
+  const [cloudinaryUrl, setCloudinaryUrl] = useState('');
+  const dispatch = useDispatch();
 
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const [map_pic, setMap_Pic] = useState("");
-    const dispatch = useDispatch();
-    // const history = useHistory();
+  const isFileValid = (file) => {
+    const acceptedImageTypes = ['image/gif', 'image/jpeg', 'image/png'];
+    return acceptedImageTypes.includes(file.type);
+  };
 
-    const submitHandle = async (e) => {
-        e.preventDefault();
+  const onFileChange = async (event) => {
+    const fileToUpload = event.target.files[0];
 
-        try {
-            // Make a POST request to the server
-            axios.post("/api/routes", {
-                name,
-                description,
-                map_pic,
-            })
-                .then((response) => {
-                    dispatch({ type: "FETCH_ROUTES" });
-                })
-                .catch((error) => {
-                    console.log("Post not functioning, AddRoute Module", error);
-                    alert("Something went wrong with POST!");
-                });
+    if (isFileValid(fileToUpload)) {
+      const formData = new FormData();
+      formData.append('file', fileToUpload);
+      formData.append('upload_preset', process.env.REACT_APP_PRESET);
 
-            // Clear form fields once submitted
-            setName("");
-            setDescription("");
-            setMap_Pic("");
-        } catch (error) {
-            console.error('Post not working in try-catch AddRoute', error);
-        }
+      try {
+        const cloudinaryResponse = await axios.post(
+          `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD_NAME}/image/upload`,
+          formData,
+          {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          }
+        );
+        setCloudinaryUrl(cloudinaryResponse.data.secure_url);
+      } catch (error) {
+        console.error('Error uploading to Cloudinary:', error);
+        alert('Something went wrong with the image upload!');
+      }
+    } else {
+      alert('Please select a valid image (GIF, JPEG, or PNG).');
     }
+  };
 
-  
+  const submitHandle = async (e) => {
+    e.preventDefault();
 
+    try {
+      if (cloudinaryUrl) {
+        await axios.post('/api/routes', {
+          name,
+          description,
+          map_pic: cloudinaryUrl,
+        });
 
+        dispatch({ type: 'FETCH_ROUTES' });
 
+        setName('');
+        setDescription('');
+        setMap_Pic('');
+        setCloudinaryUrl('');
+      } else {
+        alert('Please upload an image first.');
+      }
+    } catch (error) {
+      console.error('Error in submitHandle:', error);
+      alert('Something went wrong with the submission!');
+    }
+  };
 
-
-
-    return (
-
-        <form onSubmit={submitHandle}>
-            Name:{" "}
-            <input
-                value={name}
-                placeholder="Name of Route"
-                onChange={(e) => setName(e.target.value)}
-            />
-            <br></br>
-            Description:{" "}
-            <input
-                value={description}
-                type="text"
-                placeholder="Description"
-                onChange={(e) => setDescription(e.target.value)}
-            />
-            <br></br>
-            Map File:{" "}
-            <input
-                value={map_pic}
-                type="file"
-                accept="image/*"
-                placeholder="Upload Image of Route"
-                onChange={(e) => setMap_Pic(e.target.value)}
-            />
-            <br></br>
-        <br />
-        {
-          map_pic === '' ? (
-            <p>Please select an image</p>
-          ) : (
-            <img style={{ maxWidth: '150px' }} src={map_pic} />
-          )
-        }
-        <br />
-            <button type="submit">Add Route</button>
-        </form>
-    );
-};
-
-
-
+  return (
+    <form onSubmit={submitHandle}>
+      Name:{" "}
+      <input
+        value={name}
+        placeholder="Name of Route"
+        onChange={(e) => setName(e.target.value)}
+      />
+      <br />
+      Description:{" "}
+      <input
+        value={description}
+        type="text"
+        placeholder="Description"
+        onChange={(e) => setDescription(e.target.value)}
+      />
+      <br />
+      Map File:{" "}
+      <input
+        type="file"
+        accept="image/*"
+        placeholder="Upload Image of Route"
+        onChange={onFileChange}
+      />
+      <br />
+      {
+        cloudinaryUrl === '' ? (
+          <p>Please select a valid image</p>
+        ) : (
+          <img style={{ maxWidth: '150px' }} src={cloudinaryUrl} alt="Selected" />
+        )
+      }
+      <br />
+      <button type="submit">Add Route</button>
+    </form>
+  );
+}
 
 export default AddRoute;
