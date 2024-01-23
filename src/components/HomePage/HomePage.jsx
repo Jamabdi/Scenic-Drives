@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Card, Button, CardContent, Grid, Paper } from '@mui/material';
-import './UserPage.css';
+import './HomePage.css';
 import AddRoute from '../AddRoute/AddRoute.jsx';
 import { Modal } from 'react-modal';
 
@@ -22,9 +22,6 @@ function UserPage() {
     dispatch({ type: 'FETCH_ROUTES' });
   }, []);
 
-  // const removeRoute = (id) => {
-  //   dispatch({ type: 'DELETE_ROUTE', payload: id });
-  // }
 
   const removeRoute = async (id) => {
     // Dispatch action to delete route
@@ -91,11 +88,6 @@ function UserPage() {
                     </div>
                     <br></br>
                     <br></br>
-                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>
-                    <Button onClick={() => removeRoute(route.id)} variant="contained" color="secondary">
-                      Delete
-                    </Button>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
