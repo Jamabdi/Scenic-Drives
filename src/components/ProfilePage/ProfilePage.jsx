@@ -24,12 +24,12 @@ function Profile() {
 
   return (
     <main className='body'>
-      {/* <h2 style={textPlacement}>{heading}</h2> */}
+      <br></br>
+      <h2 style={textPlacement}>{heading}</h2>
       <br></br>
       <br></br>
-      <div className="container">
-      {/* <h2 style={textPlacement}>{heading}</h2> */}
-        {/* <h2 className='routes-title' >Your Routes</h2> */}
+        <div className="container">
+                 {/* <h2 className='routes-title' >Your Routes</h2> */}
         <section className="card-container">
           {routes.map(route => (
             <Card key={route.id} className="card" elevation={3}>
@@ -38,7 +38,6 @@ function Profile() {
                   <h3 style={textPlacement}>{route.name}</h3>
                   <img style={imageSizeDown} src={route.map_pic} alt={route.description} />
                   <h6 style={textPlacement}>{route.description}</h6>
-                  <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',}}></div>
                   <br></br>
                   <br></br>
                   <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', }}>

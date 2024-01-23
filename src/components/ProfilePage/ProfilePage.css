@@ -2,13 +2,11 @@
 
 .container {
     text-align: left; /* Align content to the left */
-    padding: 20px;
+    padding: 0px;
   }
   
   .card-container {
     display: flex;
-    /* flex-direction: column;
-    flex-wrap: wrap; */
     flex-flow: column wrap;
     justify-content: flex-start; /* Align cards to the far left */
   }
