@@ -13,6 +13,12 @@ function Profile() {
     dispatch({ type: 'FETCH_ROUTES' });
   }, []);
 
+
+  const removeRoute = async (id) => {
+    // Dispatch action to delete route
+  dispatch({ type: 'DELETE_ROUTE', payload: id });
+  };
+
   const imageSizeDown = {
     width: `${400}px`,
     height: `${300}px`,
@@ -33,7 +39,7 @@ function Profile() {
         <section className="card-container">
           {routes.map(route => (
             <Card key={route.id} className="card" elevation={3}>
-              <CardContent onClick={(event) => displayRoute(route)}>
+              <CardContent>
                 <div className='routeItem'>
                   <h3 style={textPlacement}>{route.name}</h3>
                   <img style={imageSizeDown} src={route.map_pic} alt={route.description} />
