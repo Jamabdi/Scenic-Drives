@@ -51,14 +51,13 @@ function UserPage() {
 
 
   return (
-    <main>
+    <main className='body'>
       <h2 style={textPlacement}>{heading}</h2>
+      <br></br>
       <br></br>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
       <Button className='postButton' variant="contained" color="primary" onClick={handleShowModal}>Post a New Route</Button>
       </div>
-      <br></br>
-      <br></br>
       <br></br>
       <br></br>
       {/* AddRoute component */}
@@ -67,12 +66,11 @@ function UserPage() {
       <section className="container">
         {routes.map(route => {
           return (
-            // <Paper key={route.id} elevation={3} style={{ margin: '10px', padding: '20px' }}>
                <Card key={route.id} className="card" elevation={3}>
-                <CardContent>
+                <CardContent onClick={(event) => displayRoute(route)}>
                   <div className='routeItem'>
                     <h3 style={textPlacement}>{route.name}</h3>
-                    <img onClick={(event) => displayRoute(route)} style={imageSizeDown} src={route.map_pic} alt={route.description} />
+                    <img style={imageSizeDown} src={route.map_pic} alt={route.description} />
                     <h6 style={textPlacement}>{route.description}</h6>
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center',}}>
                     <Button variant="contained" color="primary">
@@ -97,6 +95,14 @@ function UserPage() {
 }
 
 export default UserPage;
+
+
+
+
+
+
+
+
 
 
 
