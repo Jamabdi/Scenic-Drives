@@ -38,7 +38,7 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #e36414;;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -53,6 +53,7 @@ Button
 .btn_sizeSm {
   padding: 10px 15px;
   font-size: 0.8rem;
+  background-color: #e36414;
 }
 
 .btn_sizeFull {
@@ -61,7 +62,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #e36414;;
   text-decoration: none;
 }
 
@@ -78,8 +79,8 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #e36414;;
+  color: #e36414;;
 }
 
 /* --------------------------------------------------------------------------------
